@@ -11,4 +11,4 @@ const Topnav = () => {
   )
 }
 
-export default Topnav
+export default Topnav;
