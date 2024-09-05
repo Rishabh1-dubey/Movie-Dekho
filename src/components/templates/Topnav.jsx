@@ -17,11 +17,11 @@ const Topnav = () => {
   useEffect(() => {
     GetSearchs();
   }, [query]);
-
+  console.log(query);
 
   return (
-    <div className="w-full h-[10vh] relative flex justify-start items-center ml-[20%] ">
-      <i className="text-3xl text-zinc-400 ri-search-line"></i>
+    <div className="w-[80%] h-[10vh] relative left-[5%] flex mx-auto items-center ">
+      <i class="text-3xl text-zinc-400 ri-search-line"></i>
       <input
         onChange={(e) => setQuery(e.target.value)}
         value={query}
@@ -33,11 +33,11 @@ const Topnav = () => {
       {query.length > 0 && (
         <i
           onClick={() => setQuery("")}
-          className=" text-3xl text-zinc-500 ri-close-line"
+          class=" text-3xl text-zinc-500 ri-close-line right-0"
         ></i>
       )}
 
-      <div className="absolute w-[50%] max-h-[50vh] top-[90%] bg-zinc-300 overflow-auto">
+      <div className="absolute w-[50%] max-h-[50vh] left-[5%] top-[100%] bg-zinc-300 overflow-auto">
         {serach.map((s, i) => (
           <Link
             key={i}
