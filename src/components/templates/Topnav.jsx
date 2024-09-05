@@ -8,7 +8,7 @@ const Topnav = () => {
     try {
       const { data } = await axios.get(`/search/multi?query=${query}`);
       setSearch(data.results);
-      console.log(data.results);
+      // console.log(data.results);
     } catch (error) {
       console.log("Error:", error);
     }
@@ -17,11 +17,11 @@ const Topnav = () => {
   useEffect(() => {
     GetSearchs();
   }, [query]);
-  console.log(query);
+
 
   return (
     <div className="w-full h-[10vh] relative flex justify-start items-center ml-[20%] ">
-      <i class="text-3xl text-zinc-400 ri-search-line"></i>
+      <i className="text-3xl text-zinc-400 ri-search-line"></i>
       <input
         onChange={(e) => setQuery(e.target.value)}
         value={query}
@@ -33,7 +33,7 @@ const Topnav = () => {
       {query.length > 0 && (
         <i
           onClick={() => setQuery("")}
-          class=" text-3xl text-zinc-500 ri-close-line"
+          className=" text-3xl text-zinc-500 ri-close-line"
         ></i>
       )}
 
