@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "../../utils/axios";
+import { IMG_URL } from "../../utils/constents";
+
 const Topnav = () => {
   const [query, setQuery] = useState("");
   const [serach, setSearch] = useState([]);
@@ -17,7 +19,7 @@ const Topnav = () => {
   useEffect(() => {
     GetSearchs();
   }, [query]);
-  console.log(query);
+
 
   return (
     <div className="w-[80%] h-[10vh] relative left-[5%] flex mx-auto items-center ">
@@ -37,7 +39,7 @@ const Topnav = () => {
         ></i>
       )}
 
-      <div className="absolute w-[50%] max-h-[50vh] left-[5%] top-[100%] bg-zinc-300 overflow-auto">
+      <div className="absolute w-[50%] max-h-[50vh] left-[5%]  top-[100%] bg-zinc-300 overflow-auto">
         {serach.map((s, i) => (
           <Link
             key={i}
@@ -45,10 +47,10 @@ const Topnav = () => {
           >
             <img
               className="w-[10vh] h-[10vh] object-cover rounded mr-5 shadow-lg"
-              src={`https://image.tmdb.org/t/p/original/${
+              src={s.backdrop_path || s.profile_path || s.poster_path ?`https://image.tmdb.org/t/p/original/${
                 s.backdrop_path || s.profile_path || s.poster_path
-              }`}
-              alt=""
+              }` :IMG_URL }
+             
             />
             <span>{s.name || s.original_name || s.original_title}</span>
           </Link>

@@ -5,6 +5,7 @@ import axios from "../utils/axios";
 import Header from "./templates/Header";
 import HorizontallyCard from "./templates/HorizontallyCard";
 import Dropdown from "./templates/Dropdown";
+import Loader from "./templates/Loader";
 
 const Home = () => {
   const [wallpapaer, setWallpaper] = useState(null);
@@ -32,8 +33,8 @@ const Home = () => {
       console.log("Error", error);
     }
   };
+console.log(trending)
 
-  
   // <-------calling use effect -------------------------->
   useEffect(() => {
     // trending && GetTredingData();
@@ -54,16 +55,16 @@ const Home = () => {
           {/* drop down render */}
           <Dropdown
             title="Filter"
-            option={["Movies", "Tv Shows", "all"]}
+            option={["movie", "tv", "all"]}
             func={(e) => setCategory(e.target.value )}
           />
         </div>
 
-        <HorizontallyCard data={trending} />
+        <HorizontallyCard data={trending} func={setCategory}/>
       </div>
     </>
   ) : (
-    <h1>Loading whi shimmer wla effect dal dena</h1>
+    <Loader/>
   );
 };
 
