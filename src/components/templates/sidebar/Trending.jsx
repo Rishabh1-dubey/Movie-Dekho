@@ -3,58 +3,88 @@ import { useNavigate } from "react-router-dom";
 import Topnav from "../Topnav";
 import Dropdown from "../Dropdown";
 import axios from "../../../utils/axios";
+import Cards from "../sidebar/Cards";
+import Loader from "../Loader";
 
-
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const Trending = () => {
   const navigate = useNavigate();
   const [category, setcategory] = useState("all");
-  const [trending,settrending ] = useState("day");
-  const [duration, setduration] = useState(null);
-  const GetHeaderWallpaper = async () => {
-    try {
-      const { data } = await axios.get(`/trending/all/day`);
-      let randomData =
-        data.results[(Math.random() * data.results.length).toFixed()];
-      setWallpaper(randomData);
-    } catch (error) {
-      console.log("Error", error);
-    }
-  };
+  const [duration, setduration] = useState("day");
+  const [trending, settrending] = useState([]);
+  const [page, setpage] = useState(1);
+  const [hasMore, sethasMore] = useState(true)
 
   const GetTredingData = async () => {
     try {
-      const { data } = await axios.get(`/trending/${category}/${duration}`);
-      settrending(data.results);
+      const { data } = await axios.get(`/trending/${category}/${duration}?page=${page}`);
+      if (data.results.length > 0) {
+        settrending((prevState) => [...prevState, ...data.results]);
+        setpage(page + 1);
+      }else{
+        sethasMore(false)
+      }
+      // settrending(data.results);
+      console.log(data);
     } catch (error) {
       console.log("Error", error);
     }
   };
 
-  console.log(trending);
+  const refreshHandler =  () => {
+    if (trending.length === 0) {
+      GetTredingData();
+    } else {
+      setpage(1);
+      settrending([]);
+      //yha pe gettendinng data isllye kiye hai kyuki jb react infinte scrollkregea to jb humko movies ka filter chiaye infinte scroll krne ke liye to hamra loading bs hoha
+      GetTredingData()
+    }
+  };
 
   useEffect(() => {
-    GetTredingData()
-  },[category,duration])
+    refreshHandler();
+  }, [category, duration]);
 
-  return (
-    <div className=" h-screen w-screen p-[1%]">
-      <div className="w-full flex items-center  ">
+  return trending.length > 0 ? (
+    <div className=" h-screen w-screen">
+      <div className="w-full flex items-center px-5    ">
         <h2 className="text-zinc-600 text-2xl w-[20%] m-5 font-semibold ">
           <i
             onClick={() => navigate(-1)}
-            class="hover:text-yellow-700 cursor-pointer   ri-arrow-left-line"
+            className="hover:text-yellow-700 cursor-pointer   ri-arrow-left-line"
           ></i>{" "}
           Trending
         </h2>
         <div className="flex items-center w-[80%]">
           <Topnav />
-          <Dropdown title="Category" option={["movie", "tv", "all"]} func={(e)=>setcategory(e.target.value)} />
+          <Dropdown
+            title="Category"
+            option={["movie", "tv", "all"]}
+            func={(e) => setcategory(e.target.value)}
+          />
           <div className="w-[2%]"></div>
-          <Dropdown title="Duration" option={["week", "day"]} func={(e)=>setduration(e.target.value)} />
+          <Dropdown
+            title="Duration"
+            option={["week", "day"]}
+            func={(e) => setduration(e.target.value)}
+          />
         </div>
       </div>
+
+      {/* adding functionlites of infinte scroll this is more important concept of the react */}
+      <InfiniteScroll
+        loader={<h4>loading......</h4>}
+        hasMore={hasMore}
+        next={GetTredingData}
+        dataLength={trending.length}
+      >
+        <Cards data={trending} title={category} />
+      </InfiniteScroll>
     </div>
+  ) : (
+    <Loader />
   );
 };
 
