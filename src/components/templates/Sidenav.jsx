@@ -17,17 +17,17 @@ const Sidenav = () => {
           <i className="ri-fire-fill v"></i> Trending
         </Link>
 
-        <Link className="  text-slate-300 text-slate-300e hover:bg-[#b838af] rounded-lg hover:text-white duration-300 p-4">
+        <Link to="/popular" className="  text-slate-300 text-slate-300e hover:bg-[#b838af] rounded-lg hover:text-white duration-300 p-4">
           <i className="ri-sparkling-line mr-2"></i>Popular
         </Link>
 
-        <Link className=" text-slate-300 hover:bg-[#b838af] rounded-lg hover:text-white duration-300 p-4">
+        <Link to="/movie" className=" text-slate-300 hover:bg-[#b838af] rounded-lg hover:text-white duration-300 p-4">
           <i className="ri-film-line mr-2"></i>Movies
         </Link>
-        <Link className=" text-slate-300 hover:bg-[#b838af] rounded-lg hover:text-white duration-300 p-4">
+        <Link to="/tv" className=" text-slate-300 hover:bg-[#b838af] rounded-lg hover:text-white duration-300 p-4">
           <i className="ri-tv-fill mr-2"></i>TV Shows
         </Link>
-        <Link className=" text-slate-300 hover:bg-[#b838af] rounded-lg hover:text-white duration-300 p-4">
+        <Link to="/people" className=" text-slate-300 hover:bg-[#b838af] rounded-lg hover:text-white duration-300 p-4">
           <i className="ri-user-line mr-2"></i> People
         </Link>
 

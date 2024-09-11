@@ -9,6 +9,10 @@ import Loader from "../Loader";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const Trending = () => {
+
+document.title="Project | Popular "
+
+
   const navigate = useNavigate();
   const [category, setcategory] = useState("all");
   const [duration, setduration] = useState("day");
