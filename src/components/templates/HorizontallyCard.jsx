@@ -1,11 +1,12 @@
 import React from "react";
 import Dropdown from "./Dropdown";
+import { Link } from "react-router-dom";
 
 const HorizontallyCard = ({ data }) => {
   return (
     <div className=" w-[100%] h-[50vh] flex overflow-x-auto mb-10 p-2">
       {data.map((card, i) => (
-        <div
+        <Link to={`/${card.media_type}/details/${card.id}`}
           className="relative bottom-2 min-w-[22%] h-[45vh]  bg-slate-500 rounded-md mr-5 overflow-hidden p-1"
           key={i}
         >
@@ -26,7 +27,7 @@ const HorizontallyCard = ({ data }) => {
             <span className="m-1 text-white">more</span>
           </p>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );
