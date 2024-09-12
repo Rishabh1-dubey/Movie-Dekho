@@ -74,7 +74,7 @@ const People = () => {
         next={GetPeople}
         dataLength={person.length}
       >
-        <Cards data={person} title={category} />
+        <Cards data={person} title="person" />
       </InfiniteScroll>
     </div>
   ) : (

@@ -75,7 +75,7 @@ const TV = () => {
         next={GetTV}
         dataLength={tv.length}
       >
-        <Cards data={tv} title={category} />
+        <Cards data={tv} title="tv" />
       </InfiniteScroll>
     </div>
   ) : (
