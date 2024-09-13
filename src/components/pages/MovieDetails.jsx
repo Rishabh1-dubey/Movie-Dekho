@@ -1,11 +1,15 @@
 import React, { useEffect } from "react";
 import { asyncloaddMovies } from "../../store/actions/movieAction";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { removemovie } from "../../store/reducers/movieSlic";
 import Loader from "../templates/Loader";
+import HorizontallyCard from "../templates/HorizontallyCard";
 
 const MovieDetails = () => {
+
+  //for movie path name
+  const{pathname} = useLocation();
   // const params=  useParams()
   const { id } = useParams();
   //getting data form our store
@@ -20,7 +24,7 @@ const MovieDetails = () => {
     return () => {
       dispatch(removemovie());
     };
-  }, []);
+  }, [id]);
   return info ? (
     <div
       style={{
@@ -30,7 +34,7 @@ const MovieDetails = () => {
         backgroundPosition: "top 10%",
         backgroundSize: "cover",
       }}
-      className="w-screen h-screen    px-[10%]"
+      className="w-screen h-[140vh]    px-[10%]"
     >
       {/* nav bar part -1 */}
       <nav className="h-[10vh] w-full flex gap-8 items-center text-2xl text-zinc-200 ">
@@ -58,9 +62,9 @@ const MovieDetails = () => {
       </nav>
 
       {/* poster part for movie */}
-      <div className="w-full flex ">
+      <div className="w-full flex  mb-12 ">
         <img
-          className="h-[55vh] w-[40vh]    rounded-lg  hover:scale-105 delay-100 transition-all ease-in-out  "
+          className="h-[55vh] w-[40vh]   rounded-lg  hover:scale-105 delay-100 transition-all ease-in-out  "
           src={
             info.detail.poster_path || info.detail.backdrop_path
               ? `https://image.tmdb.org/t/p/original/${
@@ -72,31 +76,48 @@ const MovieDetails = () => {
         />
         <div className="ml-10">
           <h1 className="text-3xl font-bold text-white">
-            {info.detail.title || info.detail.name ||info.detail.original_name ||info.detail.original_title}
-           ( <small className="text-xl font-semibold text-zinc-400">{info.detail.release_date.split("-")[0]}</small>)
+            {info.detail.title ||
+              info.detail.name ||
+              info.detail.original_name ||
+              info.detail.original_title}
+            ({" "}
+            <small className="text-xl font-semibold text-zinc-400">
+              {info.detail.release_date.split("-")[0]}
+            </small>
+            )
           </h1>
-<div className="flex gap-5 items-center p-3">
-  <span
-              className=" text-white text-lg w-[5.7vh] h-[5vh] flex justify-center items-center rounded-full font-semibold bg-green-400">
-               { (info.detail.vote_average * 10).toFixed()}
+          <div className="flex gap-5 items-center p-3">
+            <span className=" text-white text-lg w-[5.7vh] h-[5vh] flex justify-center items-center rounded-full font-semibold bg-green-400">
+              {(info.detail.vote_average * 10).toFixed()}
               <sup>%</sup>
-  </span>
+            </span>
 
-<h1 className="text-white ">{info.detail.release_date}</h1>
-<h1 className="text-white font-semibold"><i className=" mr-2 text-xl text-pink-200 ri-file-video-line"></i>{info.detail.genres.map((g)=>g.name).join(",")}</h1>
-<h1>
-{info.detail.runtime}
-</h1>
+            <h1 className="text-white ">{info.detail.release_date}</h1>
+            <h1 className="text-white font-semibold">
+              <i className=" mr-2 text-xl text-pink-200 ri-file-video-line"></i>
+              {info.detail.genres.map((g) => g.name).join(",")}
+            </h1>
+            <h1 className="text-xl text-white">{info.detail.runtime}min</h1>
+          </div>
+          <h1 className=" italic font-2xl font-bold pt-4 text-white">{info.detail.tagline}</h1>
+          {/* part-3 oveview and alll */}
+          <div className="">
+            <h1 className="text-2xl font-bold text-yellow-600 mt-2">overview-</h1>
+            <p className="mb-10 text-white italic font-semibold"> {info.detail.overview}</p>
 
-</div>
-
-
+            <Link className="text-white p-3 rounded-lg bg-pink-500 hover:bg-blue-400 transition-all delay-75 hover:text-black text-lg scale-90 ease-in-out font-semibold  border border-red-800 " to={`${pathname}/trailer`}><i className=" mr-3 ri-play-large-fill"></i>Play Trailer</Link>
+            </div>
 
 
 
 
         </div>
       </div>
+      {/* part-4 begin */}
+      <h1 className="text-white font-semibold text-4xl">Recomendation and Similiar Movies</h1>
+      <hr className="pb-6"></hr>
+
+      <HorizontallyCard data={info.recommendations.length>0 ?info.recommendations : info.similar}/>
     </div>
   ) : (
     <Loader />
