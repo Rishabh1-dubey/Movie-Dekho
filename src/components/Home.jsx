@@ -33,7 +33,7 @@ const Home = () => {
       console.log("Error", error);
     }
   };
-console.log(trending)
+// console.log(trending)
 
   // <-------calling use effect -------------------------->
   useEffect(() => {

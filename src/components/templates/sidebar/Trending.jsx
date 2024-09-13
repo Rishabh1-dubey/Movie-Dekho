@@ -30,7 +30,7 @@ document.title="Project | Popular "
         sethasMore(false)
       }
       // settrending(data.results);
-      console.log(data);
+    
     } catch (error) {
       console.log("Error", error);
     }

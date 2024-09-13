@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { IMG_URL } from "../../../utils/constents";
 
 const Cards = ({ data, title }) => {
-  console.log(title)
+
   const getBadgeColor = (rating) => {
     if (rating > 80) {
       return "bg-green-500"; // Green for ratings above 70%
@@ -14,7 +14,7 @@ const Cards = ({ data, title }) => {
     }
   };
 
-  console.log(data);
+
   return (
     <div className="flex flex-wrap w-full h-full pl-10 bg-[#1F1E24]">
       {data.map((c, i) => (

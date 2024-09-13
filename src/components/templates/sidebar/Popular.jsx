@@ -22,7 +22,7 @@ document.title="Project | Trending"
     const GetPopular = async () => {
         try {
           const { data } = await axios.get(`${category}/popular?page=${page}`);
-          console.log(data);
+        
           if (data.results.length > 0) {
             setPopular((prevState) => [...prevState, ...data.results]);
             setpage(page + 1);
@@ -30,7 +30,7 @@ document.title="Project | Trending"
             sethasMore(false)
           }
           // settrending(data.results);
-          console.log(data);
+        
         } catch (error) {
           console.log("Error", error);
         }

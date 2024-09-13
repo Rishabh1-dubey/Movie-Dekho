@@ -41,7 +41,7 @@ const Topnav = () => {
 
       <div className=" z-[100] absolute w-[50%] max-h-[50vh] left-[5%]  top-[100%] bg-zinc-300 overflow-auto">
         {serach.map((s, i) => (
-          <Link
+          <Link to={`/${s.media_type}/details/${s.id}`}
             key={i}
             className=" text-black  flex justify-start items-center bg-zinc-300 w-[100%] border-b-2 border-zinc-100 font-semibold hover:text-white hover:bg-zinc-400 duration-200 p-6 "
           >

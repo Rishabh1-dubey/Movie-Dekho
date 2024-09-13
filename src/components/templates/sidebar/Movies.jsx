@@ -24,7 +24,7 @@ const Movies = () => {
             sethasMore(false)
           }
           // settrending(data.results);
-          console.log(data);
+          
         } catch (error) {
           console.log("Error", error);
         }
