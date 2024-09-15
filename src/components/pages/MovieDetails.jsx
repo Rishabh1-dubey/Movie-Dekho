@@ -1,15 +1,20 @@
 import React, { useEffect } from "react";
 import { asyncloaddMovies } from "../../store/actions/movieAction";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import { removemovie } from "../../store/reducers/movieSlic";
 import Loader from "../templates/Loader";
 import HorizontallyCard from "../templates/HorizontallyCard";
 
 const MovieDetails = () => {
-
   //for movie path name
-  const{pathname} = useLocation();
+  const { pathname } = useLocation();
   // const params=  useParams()
   const { id } = useParams();
   //getting data form our store
@@ -73,7 +78,7 @@ const MovieDetails = () => {
               : IMG_URL
           }
           alt=""
-        />
+        />  
         <div className="ml-10">
           <h1 className="text-3xl font-bold text-white">
             {info.detail.title ||
@@ -86,6 +91,7 @@ const MovieDetails = () => {
             </small>
             )
           </h1>
+
           <div className="flex gap-5 items-center p-3">
             <span className=" text-white text-lg w-[5.7vh] h-[5vh] flex justify-center items-center rounded-full font-semibold bg-green-400">
               {(info.detail.vote_average * 10).toFixed()}
@@ -99,26 +105,42 @@ const MovieDetails = () => {
             </h1>
             <h1 className="text-xl text-white">{info.detail.runtime}min</h1>
           </div>
-          <h1 className=" italic font-2xl font-bold pt-4 text-white">{info.detail.tagline}</h1>
+          
+          <h1 className=" italic font-2xl font-bold pt-4 text-white">
+            {info.detail.tagline}
+          </h1>
           {/* part-3 oveview and alll */}
           <div className="">
-            <h1 className="text-2xl font-bold text-yellow-600 mt-2">overview-</h1>
-            <p className="mb-10 text-white italic font-semibold"> {info.detail.overview}</p>
+            <h1 className="text-2xl font-bold text-yellow-600 mt-2">
+              overview-
+            </h1>
+            <p className="mb-10 text-white italic font-semibold">
+              {" "}
+              {info.detail.overview}
+            </p>
 
-            <Link className="text-white p-3 rounded-lg bg-pink-500 hover:bg-blue-400 transition-all delay-75 hover:text-black text-lg scale-90 ease-in-out font-semibold  border border-red-800 " to={`${pathname}/trailer`}><i className=" mr-3 ri-play-large-fill"></i>Play Trailer</Link>
-            </div>
-
-
-
-
+            <Link
+              className="text-white p-3 rounded-lg bg-pink-500 hover:bg-blue-400 transition-all delay-75 hover:text-black text-lg scale-90 ease-in-out font-semibold  border border-red-800 "
+              to={`${pathname}/trailer`}
+            >
+              <i className=" mr-3 ri-play-large-fill"></i>Play Trailer
+            </Link>
+          </div>
         </div>
       </div>
       {/* part-4 begin */}
-      <h1 className="text-white font-semibold text-4xl">Recomendation and Similiar Movies</h1>
+      <h1 className="text-white font-semibold text-4xl">
+        Recomendation and Similiar Movies
+      </h1>
+
       <hr className="pb-6"></hr>
 
-      <HorizontallyCard data={info.recommendations.length>0 ?info.recommendations : info.similar}/>
-        <Outlet/>
+      <HorizontallyCard
+        data={
+          info.recommendations.length > 0 ? info.recommendations : info.similar
+        }
+      />
+      <Outlet />
     </div>
   ) : (
     <Loader />
