@@ -18,8 +18,8 @@ const Cards = ({ data, title }) => {
   return (
     <div className="flex flex-wrap w-full h-full pl-10 bg-[#1F1E24]">
       {data.map((c, i) => (
-        <Link to={`/${data.media_type || title}/details/${c.id}`} className="   relative w-[35vh] mr-10  mt-4 " key={i}>
-          <img
+        <Link to={`/${data.media_type || title}/details/${c.id}`} className="   relative w-[35vh]  mr-10  mt-4 " key={i}>
+          <img key={i}
             className="h-[50vh] w-[45vh]    rounded-lg  hover:scale-105 delay-100 transition-all ease-in-out  "
             src={
               c.poster_path || c.backdrop_path || c.profile_path
