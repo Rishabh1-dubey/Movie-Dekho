@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { asyncloaddMovies } from "../../store/actions/movieAction";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import { removemovie } from "../../store/reducers/movieSlic";
 import Loader from "../templates/Loader";
 import HorizontallyCard from "../templates/HorizontallyCard";
@@ -34,7 +34,7 @@ const MovieDetails = () => {
         backgroundPosition: "top 10%",
         backgroundSize: "cover",
       }}
-      className="w-screen h-[140vh]    px-[10%]"
+      className="relative w-screen h-[140vh]    px-[10%]"
     >
       {/* nav bar part -1 */}
       <nav className="h-[10vh] w-full flex gap-8 items-center text-2xl text-zinc-200 ">
@@ -118,6 +118,7 @@ const MovieDetails = () => {
       <hr className="pb-6"></hr>
 
       <HorizontallyCard data={info.recommendations.length>0 ?info.recommendations : info.similar}/>
+        <Outlet/>
     </div>
   ) : (
     <Loader />
