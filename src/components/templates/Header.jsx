@@ -30,7 +30,7 @@ const Header = ({ data }) => {
         <i className=" ml-5 ri-megaphone-line  text-yellow-200 "> </i>
         {data.release_date || "No Information"}.
       </p>
-      <Link className="mt-5 bg-purple-600 rounded text-white p-3">
+      <Link to={`/${data.media_type}/details/${data.id}`} className="mt-5 bg-purple-600 rounded text-white p-3">
         Watch Trailer
       </Link>
     </div>

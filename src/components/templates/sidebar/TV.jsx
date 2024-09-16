@@ -54,7 +54,7 @@ const TV = () => {
             onClick={() => navigate(-1)}
             className="hover:text-yellow-700 cursor-pointer   ri-arrow-left-line"
           ></i>{" "}
-          Movies
+          TV Shows
         </h2>
         <div className="flex items-center w-[80%]">
           <Topnav />

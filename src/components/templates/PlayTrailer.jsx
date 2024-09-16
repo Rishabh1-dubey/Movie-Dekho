@@ -18,6 +18,7 @@ const PlayTrailer = () => {
         className="absolute selection:hover:text-purple-300 ri-close-fill text-3xl text-white right-[15%] top-[5%] "
       ></Link>
      { ytvidoes? (<ReactPlayer
+     controls
         height={600}
         width={900}
         url={`https://www.youtube.com/watch?v=${ytvidoes.key}`}

@@ -20,6 +20,7 @@ const TvDetails = () => {
   const { id } = useParams();
   //getting data form our store
   const { info } = useSelector((state) => state.tv);
+  console.log(info)
   const dispatch = useDispatch();
 
   //for navigating the page
@@ -122,7 +123,7 @@ const TvDetails = () => {
             </p>
 
             <Link
-              className="text-white p-3 rounded-lg bg-pink-500 hover:bg-blue-400 transition-all delay-75 hover:text-black text-lg scale-90 ease-in-out font-semibold  border border-red-800 "
+              className="text-white p-3 rounded-lg bg-pink-500 hover:bg-blue-400 transition-all delay-75 hover:text-black text-lg scale-90 ease-in-out font-semibold   "
               to={`${pathname}/trailer`}
             >
               <i className=" mr-3 ri-play-large-fill"></i>Play Trailer
@@ -150,7 +151,7 @@ const TvDetails = () => {
               }
               alt=""
             />
-            <h2 className=" text-2xl w-[26vh] border border-red-300 mt-2 text-zinc-400 font-semibold hover:text-red-500  ease-in-out delay-50 ">
+            <h2 className=" text-2xl w-[26vh]  mt-2 text-zinc-400 font-semibold hover:text-red-500  ease-in-out delay-50 ">
               {card.name.slice(0,15)}
             </h2>
           </div>
