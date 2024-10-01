@@ -19,6 +19,7 @@ const MovieDetails = () => {
   const { id } = useParams();
   //getting data form our store
   const { info } = useSelector((state) => state.movie);
+  console.log(info)
   const dispatch = useDispatch();
 
   //for navigating the page

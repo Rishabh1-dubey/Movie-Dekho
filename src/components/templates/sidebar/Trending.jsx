@@ -14,7 +14,7 @@ document.title="Project | Popular "
 
 
   const navigate = useNavigate();
-  const [category, setcategory] = useState("all");
+  const [category, setcategory] = useState("movie");
   const [duration, setduration] = useState("day");
   const [trending, settrending] = useState([]);
   const [page, setpage] = useState(1);
@@ -23,6 +23,7 @@ document.title="Project | Popular "
   const GetTredingData = async () => {
     try {
       const { data } = await axios.get(`/trending/${category}/${duration}?page=${page}`);
+     console.log(data)
       if (data.results.length > 0) {
         settrending((prevState) => [...prevState, ...data.results]);
         setpage(page + 1);
@@ -52,6 +53,7 @@ document.title="Project | Popular "
   }, [category, duration]);
 
   return trending.length > 0 ? (
+  
     <div className=" h-screen w-screen">
       <div className="w-full flex items-center px-5    ">
         <h2 className="text-zinc-600 text-2xl w-[20%] m-5 font-semibold ">
