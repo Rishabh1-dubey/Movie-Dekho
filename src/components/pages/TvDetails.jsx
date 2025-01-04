@@ -123,11 +123,16 @@ const TvDetails = () => {
             </p>
 
             <Link
-              className="text-white p-3 rounded-lg bg-pink-500 hover:bg-blue-400 transition-all delay-75 hover:text-black text-lg scale-90 ease-in-out font-semibold   "
+              className="text-white p-3 rounded-lg  hover:text-blue-400 transition-all delay-75  text-lg scale-90 ease-in-out font-semibold    "
               to={`${pathname}/trailer`}
             >
-              <i className=" mr-3 ri-play-large-fill"></i>Play Trailer
+             < i class="ri-play-circle-fill text-6xl"></i>
             </Link>
+
+
+
+
+
           </div>
         </div>
       </div>
