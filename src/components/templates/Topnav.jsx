@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "../../utils/axios";
 import { IMG_URL } from "../../utils/constents";
+import toast from 'react-hot-toast'
+
 
 const Topnav = () => {
   const [query, setQuery] = useState("");
@@ -23,7 +25,10 @@ const Topnav = () => {
 
   return (
     <div className="w-[80%] h-[10vh] relative left-[5%] flex mx-auto items-center ">
-      <i className="text-3xl text-zinc-400 ri-search-line"></i>
+      <i onClick={()=>{
+        toast.error(" Please Enter your Movie")}} className="text-3xl text-zinc-400 ri-search-line cursor-pointer"> 
+      
+      </i>
       <input
         onChange={(e) => setQuery(e.target.value)}
         value={query}
@@ -35,7 +40,7 @@ const Topnav = () => {
       {query.length > 0 && (
         <i
           onClick={() => setQuery("")}
-          className=" text-3xl text-zinc-500 ri-close-line right-0"
+          className=" text-3xl text-zinc-500 ri-close-line right-0 cursor-pointer"
         ></i>
       )}
 

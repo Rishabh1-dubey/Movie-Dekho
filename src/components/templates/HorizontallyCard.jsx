@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 const HorizontallyCard = ({ data }) => {
   return (
-    <div className=" w-[100%] h-[50vh] flex overflow-x-auto mb-10 p-2">
+    <div className=" w-screen h-[50vh] flex overflow-x-auto mb-10 p-2 ">
       {data.map((card, i) => (
         <Link to={`/${card.media_type}/details/${card.id}`}
-          className="relative bottom-2 min-w-[22%] h-[45vh]  bg-gray-600 rounded-md mr-5 overflow-hidden p-1"
+          className="relative bottom-2 min-w-[18%] h-[42vh]  bg-zinc-700 rounded-md mr-5 overflow-hidden p-1  transform hover:scale-95 transition-all ease-out delay-100"
           key={i}
         >
           <img
@@ -20,10 +20,10 @@ const HorizontallyCard = ({ data }) => {
           <div className=" m-auto w-[full]">
 
           <h1 className=" pt-2 w-[70%] text-xl font-semibold text-white mx-2">
-            {card.title || card.orignal_title ||card.name||card.original_name || "Unknown"}
+            {card?.title?.slice(0,7) || card?.orignal_title ||card?.name||card?.original_name || "Unknown"}
           </h1>
           <p className=" pb-8 overflow-y-auto  w-[245px] mx-2 text-white">
-            {card.overview.slice(0, 55)}...
+            {card.overview.slice(0, 45)}...
             <span className="m-1 text-white">more</span>
           </p>
           </div>

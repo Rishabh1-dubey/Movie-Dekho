@@ -15,11 +15,12 @@ import HorizontallyCard from "../templates/HorizontallyCard";
 const MovieDetails = () => {
   //for movie path name
   const { pathname } = useLocation();
+  console.log(pathname);
   // const params=  useParams()
   const { id } = useParams();
   //getting data form our store
   const { info } = useSelector((state) => state.movie);
-  console.log(info)
+  console.log(info);
   const dispatch = useDispatch();
 
   //for navigating the page
@@ -79,7 +80,7 @@ const MovieDetails = () => {
               : IMG_URL
           }
           alt=""
-        />  
+        />
         <div className="ml-10">
           <h1 className="text-3xl font-bold text-white">
             {info.detail.title ||
@@ -106,7 +107,7 @@ const MovieDetails = () => {
             </h1>
             <h1 className="text-xl text-white">{info.detail.runtime}min</h1>
           </div>
-          
+
           <h1 className=" italic font-2xl font-bold pt-4 text-white">
             {info.detail.tagline}
           </h1>

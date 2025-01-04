@@ -12,6 +12,7 @@ import TvDetails from "./components/pages/TvDetails";
 import PerosnDetails from "./components/pages/PerosnDetails";
 import PlayTrailer from "./components/templates/PlayTrailer";
 import NotFound from "./components/templates/NotFound";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -32,12 +33,14 @@ function App() {
         </Route>
 
         <Route path="/person" element={<People />} />
+        <Route path="/loader" element={<Loader />} />
         <Route path="/person/details/:id" element={<PerosnDetails />}/>
   
       
         <Route path="*" element={<NotFound />} />
       
       </Routes>
+    
     </div>
   );
 }

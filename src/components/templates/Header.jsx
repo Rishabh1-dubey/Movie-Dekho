@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Header = ({ data }) => {
+  console.log(data)
+  const [isExpanded, setIsExpanded] = useState(false); 
  
   return (
     <div
@@ -15,12 +17,15 @@ const Header = ({ data }) => {
       className="w-full h-[60vh] flex flex-col justify-end items-start p-[5%] object-cover"
     >
       <h1 className=" w-[70%] text-white font-black text-5xl">
-        {data.title || data.orignal_title}
+        {data?.title || data?.orignal_title || data?.name|| "Unknown"}
       </h1>
       <h1 className=" w-[70%] mt-3 mb-3  text-white ">
-        {data.overview.slice(0, 200)} ...
-        <Link className="m-1 text-blue-500 cursor-pointer hover:text-yellow-200">
-          more
+      {isExpanded ? data.overview : `${data.overview.slice(0, 200)} ...`}
+      <Link
+        className="m-1 text-gray-400 cursor-pointer hover:text-gray-700 hover:delay-200 transition ease-in-out"
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
+        {isExpanded ? "less" : "Know More"}
         </Link>
       </h1>
 
