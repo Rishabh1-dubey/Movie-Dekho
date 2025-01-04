@@ -19,10 +19,10 @@ const HorizontallyCard = ({ data }) => {
           />
           <div className=" m-auto w-[full]">
 
-          <h1 className=" pt-2 w-[70%] text-xl font-semibold text-white mx-2">
+          <h1 className=" pt-2 w-[70%] text-2xl font-semibold text-zinc-200 mx-2 pb-2">
             {card?.title?.slice(0,7) || card?.orignal_title ||card?.name||card?.original_name || "Unknown"}
           </h1>
-          <p className=" pb-8 overflow-y-auto  w-[245px] mx-2 text-white">
+          <p className=" pb-8 overflow-y-auto  w-[245px] mx-2 text-white font-2xl">
             {card.overview.slice(0, 45)}...
             <span className="m-1 text-white">more</span>
           </p>

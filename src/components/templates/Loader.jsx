@@ -5,12 +5,12 @@ const Loader = () => {
   const data = Array(6).fill(""); // Create an array of 6 items
   const card = Array(4).fill(""); // Create an array of 6 items
   return (
-    <div className="   bg-white text-white  grid grid-cols-3 gap-52 ">
+    <div className="   bg-slate-400 text-white  grid grid-cols-3 gap-52 ">
       <div className=" w-[325px] bg-slate-300 animate-pulse pt-14   ">
         {data.map((item, index) => (
           <p
             key={index}
-            className=" bg-slate-400 rounded-xl w-[250px] mt-14 mx-4 p-4"
+            className=" bg-slate-200 rounded-xl w-[250px] mt-14 mx-4 p-4"
           >
             {item}
           </p>
