@@ -46,7 +46,10 @@ const Home = () => {
 
   return wallpapaer && trending ? (
     <>
+    
+
       <Sidenav />
+    
       <div className="w-[80%] h-full bg-gray-800 overflow-auto overflow-x-hidden">
         <Topnav />
         <Header data={wallpapaer} />

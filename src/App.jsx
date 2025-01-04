@@ -33,7 +33,6 @@ function App() {
         </Route>
 
         <Route path="/person" element={<People />} />
-        <Route path="/loader" element={<Loader />} />
         <Route path="/person/details/:id" element={<PerosnDetails />}/>
   
       
