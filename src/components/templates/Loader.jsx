@@ -1,47 +1,52 @@
 import React from "react";
-import prev from "/prev.jpg";
-import { GIF_LOADER } from "../../utils/constents";
+
 const Loader = () => {
-  const data = Array(6).fill(""); // Create an array of 6 items
-  const card = Array(4).fill(""); // Create an array of 6 items
+  // Create arrays for placeholder items
+  const sidebarItems = Array(6).fill(""); // Sidebar skeleton items
+  const cardItems = Array(4).fill(""); // Card skeleton items
+
   return (
-    <div className="   bg-slate-400 text-white  grid grid-cols-3 gap-52 ">
-      <div className=" w-[325px] bg-slate-300 animate-pulse pt-14   ">
-        {data.map((item, index) => (
-          <p
-            key={index}
-            className=" bg-slate-200 rounded-xl w-[250px] mt-14 mx-4 p-4"
-          >
-            {item}
-          </p>
-        ))}
-      </div>
-      <div className=" relative right-64  h-screen grid grid-rows-2 gap-14">
-        <div className="  h-[400px] w-[1200px] min-w-[700px] bg-slate-100 animate-pulse ">
-          <div className="mt-36 animate-pulse">
-            <h1 className="text-black mb-10 bg-slate-200 px-12 py-6 mx-12 w-[280px] p-1 rounded-full"></h1>
-            <div className="">
-              <h1 className="text-black mb-4 bg-slate-200 px-12 mx-12 w-[780px] p-1 rounded-full"></h1>
-              <h1 className="text-black mb-4  bg-slate-200 px-12 mx-12 w-[580px] p-1 rounded-full"></h1>
-              <h1 className="text-black mb-6  bg-slate-200 px-12 mx-12 w-[680px] p-1 rounded-full"></h1>
+    <div className="w-full min-h-screen bg-gradient-to-r from-slate-800 to-slate-900 p-8">
+      {/* Main Container */}
+      <div className="flex gap-8">
+        {/* Sidebar Skeleton */}
+        <div className="w-[325px] bg-slate-700 rounded-lg shadow-lg animate-pulse p-6">
+          {sidebarItems.map((_, index) => (
+            <div
+              key={index} // Add key prop
+              className="h-12 bg-slate-600 rounded-lg mb-4 last:mb-0"
+            ></div>
+          ))}
+        </div>
+
+        {/* Main Content Skeleton */}
+        <div className="flex-1">
+          {/* Hero Section Skeleton */}
+          <div className="h-[400px] bg-slate-700 rounded-lg shadow-lg animate-pulse p-8">
+            <div className="h-8 bg-slate-600 rounded-full w-48 mb-6"></div>
+            <div className="space-y-4">
+              <div className="h-4 bg-slate-600 rounded-full w-full"></div>
+              <div className="h-4 bg-slate-600 rounded-full w-3/4"></div>
+              <div className="h-4 bg-slate-600 rounded-full w-2/3"></div>
             </div>
-            <h1 className="text-black mb-10 bg-slate-200 px-12 py-6 mx-12 w-[150px] p-1 rounded-3xl"></h1>
+            <div className="h-12 bg-slate-600 rounded-full w-32 mt-8"></div>
           </div>
-        </div>
 
-        <div className="text-black  mt-6   h-[290px] grid grid-rows-1">
-         <div className="flex overflow-auto">
-
-
-         {card.map((item, index) => (
-          <div key={index} className="flex flex-col space-y-3  mt-14 mx-12 ">
-          <div className="h-[125px] w-[250px] rounded-xl bg-slate-300 "></div>
-          <div className=" bg-slate-500 h-4 w-[250px] rounded-lg animate-pulse" />
-          <div className=" bg-slate-500 h-4 w-[200px] rounded-lg animate-pulse" />
-        </div>
-        ))}
-          
-         </div>
+          {/* Card Grid Skeleton */}
+          <div className="mt-8">
+            <div className="flex overflow-x-auto gap-6">
+              {cardItems.map((_, index) => (
+                <div
+                  key={index} // Add key prop
+                  className="flex-shrink-0 w-[250px] bg-slate-700 rounded-lg shadow-lg animate-pulse p-4"
+                >
+                  <div className="h-[150px] bg-slate-600 rounded-lg"></div>
+                  <div className="h-4 bg-slate-600 rounded-full w-3/4 mt-4"></div>
+                  <div className="h-4 bg-slate-600 rounded-full w-1/2 mt-2"></div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>

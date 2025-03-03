@@ -1,7 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
-import Loader from "./components/templates/Loader";
 import Trending from "./components/templates/sidebar/Trending";
 import Popular from "./components/templates/sidebar/Popular";
 import Movies from "./components/templates/sidebar/Movies";
@@ -12,7 +11,7 @@ import TvDetails from "./components/pages/TvDetails";
 import PerosnDetails from "./components/pages/PerosnDetails";
 import PlayTrailer from "./components/templates/PlayTrailer";
 import NotFound from "./components/templates/NotFound";
-import { Toaster } from "react-hot-toast";
+
 
 function App() {
   return (

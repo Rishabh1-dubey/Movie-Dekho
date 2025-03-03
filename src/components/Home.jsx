@@ -50,12 +50,15 @@ const Home = () => {
 
       <Sidenav />
     
-      <div className="w-[80%] h-full bg-gray-800 overflow-auto overflow-x-hidden">
+      <div className=" w-full md:w-[97%] h-full bg-gray-700 overflow-auto overflow-x-hidden">
         <Topnav />
         <Header data={wallpapaer} />
 
-        <div className="mb-5 flex justify-between p-4">
-          <h1 className="text-2xl  text-zinc-200 font-semibold">Trending</h1>
+        <div className="mb-8 p-4 md:p-6">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-6">
+            <h1 className="text-2xl md:text-3xl text-zinc-200 font-bold mb-4 md:mb-0">
+              Trending
+            </h1>
           {/* drop down render */}
           <Dropdown
             title="Filter"
@@ -66,6 +69,7 @@ const Home = () => {
 
         <HorizontallyCard data={trending} func={setCategory}/>
       </div>
+      </div> 
     </>
   ) : (
     <Loader/>

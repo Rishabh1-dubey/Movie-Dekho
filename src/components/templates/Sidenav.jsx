@@ -1,48 +1,138 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Sidenav = () => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
   return (
-    <div className="w-[20%] h-full bg-black border-r-2  	">
-   
-        <div className="flex mt-2">
-
-       <img className="h-16" src="https://i.pinimg.com/474x/4c/3f/b4/4c3fb4ea87a4b1cbc6f21e9e08bab7da.jpg"/>
-        <span className="text-3xl  font-medium text-white py-4 px-6 hover:text-[#B838AF] duration-300 cursor-pointer">Streamy</span>
+    <div
+      className={`fixed md:relative h-screen bg-black border-r-2 border-zinc-700 overflow-y-auto transition-all duration-300 ${
+        isCollapsed ? "w-16" : "w-64"
+      }`}
+    >
+      {/* Logo and Brand Name */}
+      <div className="flex items-center justify-between p-4">
+        <div className="flex items-center">
+          <img
+            className="h-12 w-12 rounded-full"
+            src="https://i.pinimg.com/474x/4c/3f/b4/4c3fb4ea87a4b1cbc6f21e9e08bab7da.jpg"
+            alt="Streamy Logo"
+          />
+          {!isCollapsed && (
+            <span className="text-2xl font-medium text-white ml-2 hover:text-[#B838AF] duration-300 cursor-pointer">
+              Streamy
+            </span>
+          )}
         </div>
-    
+        <button
+          onClick={toggleSidebar}
+          className="text-white hover:text-yellow-500 focus:outline-none md:hidden"
+        >
+          <i className={`ri-${isCollapsed ? "menu-line" : "close-line"} text-xl`}></i>
+        </button>
+      </div>
 
-      <nav className="  flex flex-col py-2 px-6 gap-3">
+      {/* Navigation Links */}
+      <nav className="flex flex-col p-4 gap-2">
+        <h1 className={`text-white text-lg font-semibold mb-2 ${isCollapsed ? "hidden" : ""}`}>
+          New Feeds
+        </h1>
 
-        <h1 className="text-white text-xl  font-semibold"> New Feeds</h1>
+        <NavLink
+          to="/trending"
+          className={({ isActive }) =>
+            `flex items-center text-slate-300 hover:bg-zinc-800 hover:text-yellow-500 rounded-lg duration-300 p-3 ${
+              isActive ? "bg-zinc-800 text-yellow-500" : ""
+            }`
+          }
+        >
+          <i className="ri-fire-fill text-xl mr-2"></i>
+          {!isCollapsed && <span className="text-sm">Trending</span>}
+        </NavLink>
 
-        <Link to="/trending" className=" text-slate-300  rounded-lg hover:text-yellow-500 duration-300 p-4 ">
-          <i className="ri-fire-fill text-2xl px-2"></i> Trending
-        </Link>
+        <NavLink
+          to="/popular"
+          className={({ isActive }) =>
+            `flex items-center text-slate-300 hover:bg-zinc-800 hover:text-yellow-500 rounded-lg duration-300 p-3 ${
+              isActive ? "bg-zinc-800 text-yellow-500" : ""
+            }`
+          }
+        >
+          <i className="ri-sparkling-line text-xl mr-2"></i>
+          {!isCollapsed && <span className="text-sm">Popular</span>}
+        </NavLink>
 
-        <Link to="/popular" className="  text-slate-300   rounded-lg hover:text-yellow-500 duration-300 p-4  ">
-          <i className="ri-sparkling-line mr-2 text-2xl  px-2"></i>Popular
-        </Link>
+        <NavLink
+          to="/movie"
+          className={({ isActive }) =>
+            `flex items-center text-slate-300 hover:bg-zinc-800 hover:text-yellow-500 rounded-lg duration-300 p-3 ${
+              isActive ? "bg-zinc-800 text-yellow-500" : ""
+            }`
+          }
+        >
+          <i className="ri-film-line text-xl mr-2"></i>
+          {!isCollapsed && <span className="text-sm">Movies</span>}
+        </NavLink>
 
-        <Link to="/movie" className=" text-slate-300 rounded-lg hover:text-yellow-500 duration-300 p-4 ">
-          <i className="ri-film-line mr-2 text-2xl  px-2"></i>Movies
-        </Link>
-        <Link to="/tv" className=" text-slate-300 hover:text-yellow-500 rounded-lg  duration-300 p-4 ">
-          <i className="ri-tv-fill mr-2  text-2xl px-2"></i>TV Shows
-        </Link>
-        <Link to="/person" className=" text-slate-300 hover:text-yellow-500 rounded-lg duration-300 p-4  ">
-          <i className="ri-user-line mr-2  text-2xl px-2"></i> People
-        </Link>
+        <NavLink
+          to="/tv"
+          className={({ isActive }) =>
+            `flex items-center text-slate-300 hover:bg-zinc-800 hover:text-yellow-500 rounded-lg duration-300 p-3 ${
+              isActive ? "bg-zinc-800 text-yellow-500" : ""
+            }`
+          }
+        >
+          <i className="ri-tv-fill text-xl mr-2"></i>
+          {!isCollapsed && <span className="text-sm">TV Shows</span>}
+        </NavLink>
 
-        {/* aobut us section */}
-        <hr className="border-none bg-slate-400 h-[1px]" />
-        <h1 className="text-slate-200  text-xl font-medium">Website Informatin</h1>
-        <Link className=" text-slate-300 hover:text-yellow-500 rounded-lg  duration-300 p-4 ">
-          <i className="ri-pages-line"></i> About Us
-        </Link>
-        <Link className=" text-slate-300 hover:text-yellow-500 rounded-lg duration-300 p-4  ">
-          <i className="ri-customer-service-line"></i> Contact Us{" "}
-        </Link>
+        <NavLink
+          to="/person"
+          className={({ isActive }) =>
+            `flex items-center text-slate-300 hover:bg-zinc-800 hover:text-yellow-500 rounded-lg duration-300 p-3 ${
+              isActive ? "bg-zinc-800 text-yellow-500" : ""
+            }`
+          }
+        >
+          <i className="ri-user-line text-xl mr-2"></i>
+          {!isCollapsed && <span className="text-sm">People</span>}
+        </NavLink>
+
+        {/* Divider */}
+        <hr className="border-none bg-zinc-700 h-[1px] my-4" />
+
+        {/* Website Information Section */}
+        <h1 className={`text-slate-200 text-lg font-medium mb-2 ${isCollapsed ? "hidden" : ""}`}>
+          Website Information
+        </h1>
+
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            `flex items-center text-slate-300 hover:bg-zinc-800 hover:text-yellow-500 rounded-lg duration-300 p-3 ${
+              isActive ? "bg-zinc-800 text-yellow-500" : ""
+            }`
+          }
+        >
+          <i className="ri-pages-line text-xl mr-2"></i>
+          {!isCollapsed && <span className="text-sm">About Us</span>}
+        </NavLink>
+
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            `flex items-center text-slate-300 hover:bg-zinc-800 hover:text-yellow-500 rounded-lg duration-300 p-3 ${
+              isActive ? "bg-zinc-800 text-yellow-500" : ""
+            }`
+          }
+        >
+          <i className="ri-customer-service-line text-xl mr-2"></i>
+          {!isCollapsed && <span className="text-sm">Contact Us</span>}
+        </NavLink>
       </nav>
     </div>
   );

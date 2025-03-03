@@ -6,6 +6,9 @@
 /* primary - #1f1e24 */
 /*  secondary- $6556cd*/
 
+body {
+    font-family: 'Inter', sans-serif;
+  }
 
 ::-webkit-scrollbar {
     width: 7px;
