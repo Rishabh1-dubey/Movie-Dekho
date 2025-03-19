@@ -54,7 +54,7 @@ const Home = () => {
         <Topnav />
         <Header data={wallpapaer} />
 
-        <div className="mb-8 p-4 md:p-6">
+        <div className="mb-8 mt-12 p-4 md:p-6">
           <div className="flex flex-col md:flex-row justify-between items-center mb-6">
             <h1 className="text-2xl md:text-3xl text-zinc-200 font-bold mb-4 md:mb-0">
               Trending

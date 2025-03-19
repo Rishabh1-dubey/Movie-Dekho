@@ -45,7 +45,7 @@ const Sidenav = () => {
         <NavLink
           to="/trending"
           className={({ isActive }) =>
-            `flex items-center text-slate-300 hover:bg-zinc-800 hover:text-yellow-500 rounded-lg duration-300 p-3 ${
+            `flex items-center text-slate-300 cursor-pointer  hover:bg-zinc-800 hover:text-yellow-500 rounded-lg duration-300 p-3 ${
               isActive ? "bg-zinc-800 text-yellow-500" : ""
             }`
           }
@@ -57,7 +57,7 @@ const Sidenav = () => {
         <NavLink
           to="/popular"
           className={({ isActive }) =>
-            `flex items-center text-slate-300 hover:bg-zinc-800 hover:text-yellow-500 rounded-lg duration-300 p-3 ${
+            `flex items-center  cursor-pointer text-slate-300 hover:bg-zinc-800 hover:text-yellow-500 rounded-lg duration-300 p-3 ${
               isActive ? "bg-zinc-800 text-yellow-500" : ""
             }`
           }
@@ -69,7 +69,7 @@ const Sidenav = () => {
         <NavLink
           to="/movie"
           className={({ isActive }) =>
-            `flex items-center text-slate-300 hover:bg-zinc-800 hover:text-yellow-500 rounded-lg duration-300 p-3 ${
+            `flex items-center  cursor-pointer text-slate-300 hover:bg-zinc-800 hover:text-yellow-500 rounded-lg duration-300 p-3 ${
               isActive ? "bg-zinc-800 text-yellow-500" : ""
             }`
           }
@@ -81,7 +81,7 @@ const Sidenav = () => {
         <NavLink
           to="/tv"
           className={({ isActive }) =>
-            `flex items-center text-slate-300 hover:bg-zinc-800 hover:text-yellow-500 rounded-lg duration-300 p-3 ${
+            `flex items-center  cursor-pointer text-slate-300 hover:bg-zinc-800 hover:text-yellow-500 rounded-lg duration-300 p-3 ${
               isActive ? "bg-zinc-800 text-yellow-500" : ""
             }`
           }
