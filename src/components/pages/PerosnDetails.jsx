@@ -21,7 +21,7 @@ const PersonDetails = () => {
   //getting data form our store
   const { info } = useSelector((state) => state.person);
   const dispatch = useDispatch();
-  console.log(info)
+  // console.log(info)
 
   //for navigating the page
   const navigate = useNavigate();

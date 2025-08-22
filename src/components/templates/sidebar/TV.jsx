@@ -46,7 +46,7 @@ const TV = () => {
         refreshHandler();
       }, [category]);
 
-  return tv.length > 0 ? (
+  return  (
     <div className=" h-screen w-screen">
       <div className="w-full flex items-center px-5    ">
         <h2 className="text-zinc-600 text-2xl w-[20%] m-5 font-semibold ">
@@ -78,9 +78,8 @@ const TV = () => {
         <Cards data={tv} title="tv" />
       </InfiniteScroll>
     </div>
-  ) : (
-    <Loader />
-  );
+  ) 
+  
 }
 
 export default TV

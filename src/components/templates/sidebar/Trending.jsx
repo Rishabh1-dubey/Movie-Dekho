@@ -23,7 +23,7 @@ document.title="Project | Popular "
   const GetTredingData = async () => {
     try {
       const { data } = await axios.get(`/trending/${category}/${duration}?page=${page}`);
-     console.log(data)
+    
       if (data.results.length > 0) {
         settrending((prevState) => [...prevState, ...data.results]);
         setpage(page + 1);
@@ -52,10 +52,10 @@ document.title="Project | Popular "
     refreshHandler();
   }, [category, duration]);
 
-  return trending.length > 0 ? (
+  return (
   
     <div className=" h-screen w-screen">
-      <div className="w-full flex items-center px-5    ">
+      <div className="w-full flex items-center px-6   ">
         <h2 className="text-zinc-600 text-2xl w-[20%] m-5 font-semibold ">
           <i
             onClick={() => navigate(-1)}
@@ -89,9 +89,7 @@ document.title="Project | Popular "
         <Cards data={trending} title={category} />
       </InfiniteScroll>
     </div>
-  ) : (
-    <Loader />
-  );
+  ) 
 };
 
 export default Trending;

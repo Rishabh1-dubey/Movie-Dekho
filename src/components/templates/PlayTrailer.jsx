@@ -10,7 +10,7 @@ const PlayTrailer = () => {
   const Navigate = useNavigate();
   const category = pathname.includes("movie") ? "movie" : "tv";
   const ytvidoes = useSelector((state) => state[category].info.videos);
-  console.log(ytvidoes);
+ 
   return  (
     <div className="absolute bg-[rgba(0,0,0,0.5)] z-[100]  h-screen w-screen top-0 left-0  flex bg-  items-center justify-center">
       <Link

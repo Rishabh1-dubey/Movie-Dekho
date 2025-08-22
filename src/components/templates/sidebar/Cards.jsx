@@ -16,7 +16,7 @@ const Cards = ({ data, title }) => {
 
 
   return (
-    <div className="flex flex-wrap w-full h-full pl-10 bg-[#1F1E24]">
+    <div className="flex flex-wrap w-full h-full pt-6 pl-[80px] bg-[#1F1E24]">
       {data.map((c, i) => (
         <Link to={`/${data.media_type || title}/details/${c.id}`} className="   relative w-[35vh]  mr-10  mt-4 " key={i}>
           <img key={i}

@@ -54,7 +54,7 @@ document.title="Project | Trending"
 
 
 
-      return popular.length > 0 ? (
+      return  (
         <div className=" h-screen w-screen">
           <div className="w-full flex items-center px-5    ">
             <h2 className="text-zinc-600 text-2xl w-[20%] m-5 font-semibold ">
@@ -87,9 +87,7 @@ document.title="Project | Trending"
             <Cards data={popular} title={category} />
           </InfiniteScroll>
         </div>
-      ) : (
-        <Loader />
-      );
+      ) 
 }
 
 export default Popular;

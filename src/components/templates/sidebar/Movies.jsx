@@ -47,7 +47,7 @@ const Movies = () => {
 
 
 
-  return movie.length > 0 ? (
+  return (
     <div className=" h-screen w-screen">
       <div className="w-full flex items-center px-5    ">
         <h2 className="text-zinc-600 text-2xl w-[20%] m-5 font-semibold ">
@@ -57,7 +57,7 @@ const Movies = () => {
           ></i>{" "}
           Movies
         </h2>
-        <div className="flex items-center w-[80%]">
+        <div className="flex items-center w-[90%]">
           <Topnav />
           <Dropdown
             title="Category"
@@ -66,6 +66,7 @@ const Movies = () => {
           />
           <div className="w-[2%]"></div>
          
+        
         </div>
       </div>
 
@@ -79,9 +80,7 @@ const Movies = () => {
         <Cards data={movie} title="movie" />
       </InfiniteScroll>
     </div>
-  ) : (
-    <Loader />
-  );
+  )
 }
 
 export default Movies

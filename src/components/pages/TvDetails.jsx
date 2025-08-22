@@ -20,7 +20,7 @@ const TvDetails = () => {
   const { id } = useParams();
   //getting data form our store
   const { info } = useSelector((state) => state.tv);
-  console.log(info)
+ 
   const dispatch = useDispatch();
 
   //for navigating the page
