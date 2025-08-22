@@ -15,7 +15,7 @@ import NotFound from "./components/templates/NotFound";
 
 function App() {
   return (
-    <div className="bg-[#1f1e24]  w-screen h-screen flex">
+    <div className="bg-[#33313f]  w-screen h-screen flex">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/trending" element={<Trending />} />
