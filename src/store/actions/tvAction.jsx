@@ -19,7 +19,7 @@ let theUltimatedetails={
     
 }
 dispatch(loadtv(theUltimatedetails))
-console.log(theUltimatedetails);
+
 }catch(error){
     console.log("Error",error)
 

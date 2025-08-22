@@ -18,9 +18,9 @@ let theUltimatedetails={
     watchproviders:watchproviders.data.results.IN,
     
 }
-console.log(theUltimatedetails)
 
-console.log(theUltimatedetails);
+
+
 dispatch(loadmovie(theUltimatedetails))
 }catch(error){
     console.log("Error",error)
