@@ -2,16 +2,13 @@ import React, { useEffect } from "react";
 import { asyncloaddPersons } from "../../store/actions/personAction";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  Link,
-  Outlet,
   useLocation,
   useNavigate,
   useParams,
 } from "react-router-dom";
 import { removeperson } from "../../store/reducers/personSlice";
 import Loader from "../templates/Loader";
-import HorizontallyCard from "../templates/HorizontallyCard";
-import { IMG_URL } from "../../utils/constents";
+
 
 const PersonDetails = () => {
   //for person path name
@@ -34,7 +31,7 @@ const PersonDetails = () => {
   }, [id]);
 
   return info ? (
-    <div className="p-9 bg-black h-[140vh]">
+    <div className="p-9 bg-black min-h-screen">
      <img
           className="h-[55vh] w-[40vh]   rounded-lg  hover:scale-105 delay-100 transition-all ease-in-out  "
           src={`https://image.tmdb.org/t/p/original/${

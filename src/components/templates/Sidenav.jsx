@@ -42,6 +42,7 @@ const Sidenav = () => {
           New Feeds
         </h1>
 
+
         <NavLink
           to="/trending"
           className={({ isActive }) =>

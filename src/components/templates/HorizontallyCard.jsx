@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const HorizontallyCard = ({ data }) => {
   return (
-    <div className="w-full h-auto flex overflow-x-auto mb-16 p-2">
+    <div className="w-full h-auto flex overflow-x-auto  p-2">
       {data.map((card, i) => (
         <Link
           to={`/${card.media_type}/details/${card.id}`}
